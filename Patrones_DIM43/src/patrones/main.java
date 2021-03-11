@@ -23,9 +23,9 @@ import patrones.comportamiento.plantilla.Pago;
 
 public class main {
 	public static void main(String[] args) {
-		probarFactoryMethod (TipoPago.PAYPAL);
+		//probarFactoryMethod (TipoPago.PAYPAL);
 		//probarFactoryMethod (TipoPago.TARJETA);
-		//probarAbstractFactory ();
+		probarAbstractFactory ();
 		//probarBuilder();
 		//probarBuilderVCR();
 		//probarSingleton();
@@ -240,12 +240,11 @@ public class main {
 	}
 	
 	private static void probarAbstractFactory () {
-		FactoriaAbstracta miFactoriaDeTarjetas = ProveedorDeFactorias.getFactoriaConcreta("Tarjeta");
-		MarcaTarjeta miTarjeta = (TarjetaVISA) miFactoriaDeTarjetas.create("VISA");
+		FactoriaAbstracta<MarcaTarjeta> miFactoriaDeTarjetas = ProveedorDeFactorias.getFactoriaConcreta("Tarjeta");
+		MarcaTarjeta miTarjeta = miFactoriaDeTarjetas.create("VISA");
 		
-		FactoriaAbstracta miFactoriaDeMetodosPago = ProveedorDeFactorias.getFactoriaConcreta("M�todo de pago");
-		MetodoPago miMetodoDePago = (PagoCredito) miFactoriaDeMetodosPago.create("CREDITO");
-		
+		FactoriaAbstracta<MetodoPago> miFactoriaDeMetodosPago = ProveedorDeFactorias.getFactoriaConcreta("M�todo de pago");
+		MetodoPago miMetodoDePago = miFactoriaDeMetodosPago.create("CREDITO");
 		System.out.println ("Una tarjeta de tipo: " + miTarjeta.getMarcaTarjeta() + " y m�todo de pago: " + miMetodoDePago.hacerPago());
 		
 		
