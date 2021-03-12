@@ -14,7 +14,7 @@ public class AlumnoGC extends Alumno{
 		if (calificacion>10) {
 			return 10.0f;
 		}else {
-			return calificacion;
+			return notaCalificacion;
 		}	
 	}
 

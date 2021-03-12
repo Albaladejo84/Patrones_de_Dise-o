@@ -13,14 +13,14 @@ import Ejercicio3.MasterSistemasInformacion;
 public class main {
 
 	public static void main(String[] args) {
-		//probarSingleton();
+		probarSingleton();
 		//probarComposite();
-		probarPlantilla();
+		//probarPlantilla();
 
 	}
 	private static void probarPlantilla() {
-		AlumnoET pedro = new AlumnoET("Pedro", "Capitan", 4, 5, 4);
-		AlumnoGC chema = new AlumnoGC("Chema", "Comandante", 2, 8, 5);
+		AlumnoET pedro = new AlumnoET("Pedro", "Capitan", 4, 8, 4);
+		AlumnoGC chema = new AlumnoGC("Chema", "Comandante", 2, 10, 5);
 		System.out.println(pedro.getNotaFinal());
 		System.out.println(chema.getNotaFinal());
 		
@@ -31,11 +31,13 @@ public class main {
 		UnidadHospitalaria UD1 = new UnidadHospitalaria("Unidad 1");
 		Instant fecha1 = Instant.now();
 		Habitacion uno = new Habitacion("001", "Pedro", "Albaladejo", "551645666", fecha1 , true);
+		Habitacion dos = new Habitacion("002", "Paco", "Perez", "9996666777", fecha1 , false);
 		UD1.agragarHabitacion(uno);
 		planta1.agregarUnidad(UD1);
-		System.out.println(planta1.getPacientesCovid());
-		System.out.println(planta1.getHabitaciones());
-		System.out.println(UD1.getHabitaciones());
+		planta1.agregarHabitacion(dos);
+		System.out.println("Pacientes covid planta 1: " + planta1.getPacientesCovid());
+		System.out.println("Habitaciones planta 1: " + planta1.getHabitaciones());
+		System.out.println("Habitaciones Unidad Hospitalaria 1: " + UD1.getHabitaciones());
 		
 	}
 	public static void probarSingleton() {
@@ -50,7 +52,7 @@ public class main {
 		EIE.quejarse(alumno2, "El examen es muuuuuy dificil");
 		
 		System.out.println(EIE.consultarAlumnos());
-		System.out.println(EIE.consultarQuejas());
+		System.out.println(EIE.consultarQuejas()); 
 	}
 
 }

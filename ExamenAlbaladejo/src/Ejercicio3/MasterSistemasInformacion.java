@@ -11,7 +11,6 @@ public class MasterSistemasInformacion {
 	private Collection<Alumno>alumnosMaster = new ArrayList<>();
 	public static MasterSistemasInformacion instanciaUnica;
 	
-
 	private MasterSistemasInformacion() {
 		super();
 	}
@@ -30,7 +29,7 @@ public class MasterSistemasInformacion {
 		return alumnosMaster;
 	}
 	public void quejarse(Alumno alumno, String queja) {
-		quejas.add("Alumno:" + alumno.toString()+ "- Queja:" + queja);
+		quejas.add("Alumno:" + alumno.toString()+ " - Queja: " + queja + "\n");
 	}
 	
 	public Collection<String> consultarQuejas(){

@@ -1,7 +1,7 @@
 package Ejercicio1;
 
 
-public interface ICompuesto {
+public interface IElemento {
 	int getHabitaciones();
 	int getPacientesCovid();
 

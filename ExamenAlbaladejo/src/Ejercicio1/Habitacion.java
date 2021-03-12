@@ -2,7 +2,7 @@ package Ejercicio1;
 
 import java.time.Instant;
 
-public class Habitacion {
+public class Habitacion implements IElemento{
 	private String numeroHabitacion;
 	private String nombre;
 	private String apellido;
@@ -55,6 +55,16 @@ public class Habitacion {
 		this.fechaIngreso = fechaIngreso;
 		this.covid = covid;
 	}
-	
-	
+	@Override
+	public int getHabitaciones() {
+		return 1;
+	}
+	@Override
+	public int getPacientesCovid() {
+		if (covid) {
+			return 1;
+		}else{
+			return 0;
+		}
+	}
 }

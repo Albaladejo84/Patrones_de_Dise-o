@@ -3,7 +3,7 @@ package Ejercicio1;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Planta implements ICompuesto{
+public class Planta implements IElemento{
 	private int numeroPlanta;
 	private Collection<UnidadHospitalaria> unidades;
 	private Collection<Habitacion> habitaciones;
@@ -38,6 +38,8 @@ public class Planta implements ICompuesto{
 	public void agregarUnidad (UnidadHospitalaria unidad) {
 		unidades.add(unidad);
 	}
-	
+	public void agregarHabitacion (Habitacion habitacion) {
+		habitaciones.add(habitacion);
+	}
 	
 }

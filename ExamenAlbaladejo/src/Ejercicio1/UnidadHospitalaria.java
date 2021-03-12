@@ -3,27 +3,29 @@ package Ejercicio1;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class UnidadHospitalaria implements ICompuesto{
+public class UnidadHospitalaria implements IElemento{
 	private String nombre;
 	private Collection<UnidadHospitalaria> unidades;
 	private Collection<Habitacion> habitaciones;
 	
 	@Override
 	public int getHabitaciones() {
-		int numeroHabitaciones = habitaciones.size();
+		int numeroHabitaciones = 0;
+		for (Habitacion habitacion : habitaciones) {
+			numeroHabitaciones = numeroHabitaciones + habitacion.getHabitaciones();
+		}
 		for (UnidadHospitalaria unidad : unidades) {
 			numeroHabitaciones = numeroHabitaciones + unidad.getHabitaciones();
 		}
 		return numeroHabitaciones;
 	}
+	
 	@Override
 	public int getPacientesCovid() {
 		int numeroCovid=0;
 		for (Habitacion habitacion : habitaciones) {
-			if (habitacion.isCovid()) {
-				numeroCovid++;
+				numeroCovid = numeroCovid + habitacion.getPacientesCovid();
 			}
-		}
 		for (UnidadHospitalaria unidad : unidades) {
 			numeroCovid = numeroCovid + unidad.getPacientesCovid();
 		}
